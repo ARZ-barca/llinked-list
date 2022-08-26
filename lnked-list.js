@@ -1,8 +1,10 @@
+// main class
 class LinkedList {
   constructor() {
     this.firstNode = null;
   }
 
+  // add a node to the end of linked list
   append(value) {
     if (this.firstNode === null) {
       this.firstNode = new Node(value);
@@ -16,12 +18,14 @@ class LinkedList {
     currentNode.next = new Node(value);
   }
 
+  // add a node to start of linked list
   prepend(value) {
     let temp = new Node(value);
     temp.next = this.firstNode;
     this.firstNode = temp;
   }
 
+  // return number of elements in linked list
   size() {
     if (this.firstNode === null) {
       return 0;
@@ -35,6 +39,7 @@ class LinkedList {
     return counter;
   }
 
+  // return the first node in linked list
   head() {
     if (this.firstNode === null) {
       return null;
@@ -42,6 +47,7 @@ class LinkedList {
     return this.firstNode.value;
   }
 
+  // return last node in linked list
   tail() {
     if (this.firstNode === null) {
       return null;
@@ -53,6 +59,7 @@ class LinkedList {
     return currentNode.value;
   }
 
+  // return the node at given index
   at(index) {
     if (this.firstNode === null) {
       return null;
@@ -67,6 +74,7 @@ class LinkedList {
     return currentNode.value;
   }
 
+  // removes the last node from linked list and returns it
   pop() {
     if (this.firstNode === null) {
       return;
@@ -84,6 +92,7 @@ class LinkedList {
     return tmp;
   }
 
+  // check if a node with given value exists in the lnked list
   contains(value) {
     if (this.firstNode === null) {
       return false;
@@ -102,6 +111,7 @@ class LinkedList {
     return false;
   }
 
+  // return index of given value in linked list or null if it doesnt exist
   find(value) {
     if (this.firstNode === null) {
       return null;
@@ -122,6 +132,8 @@ class LinkedList {
     return null;
   }
 
+  // returns a string representation of the linked list in this format:
+  // (value) -> (value) -> null
   toString() {
     let returnString = "";
 
@@ -143,6 +155,7 @@ class LinkedList {
   }
 }
 
+// for creating nodes in linked list
 class Node {
   constructor(value) {
     this.value = value;
@@ -150,6 +163,7 @@ class Node {
   }
 }
 
+// test cases
 let myLinkedList = new LinkedList();
 myLinkedList.append(1);
 myLinkedList.append(3);
